@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C981C3311F8EB230003CE0D4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C981C3301F8EB230003CE0D4 /* Track.swift */; };
+		C981C3341F8EB825003CE0D4 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C981C3331F8EB825003CE0D4 /* TrackCell.swift */; };
+		C981C3371F8EB87F003CE0D4 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C981C3361F8EB87F003CE0D4 /* ReusableView.swift */; };
+		C981C33A1F8EBAD5003CE0D4 /* UITableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C981C3391F8EBAD5003CE0D4 /* UITableViewExt.swift */; };
+		C981C33C1F8EF58C003CE0D4 /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C981C33B1F8EF58C003CE0D4 /* PlayerVC.swift */; };
 		C9F1857E1F8DAC7E0004DEAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1857D1F8DAC7E0004DEAC /* AppDelegate.swift */; };
 		C9F185801F8DAC7E0004DEAC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1857F1F8DAC7E0004DEAC /* MainVC.swift */; };
 		C9F185831F8DAC7E0004DEAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F185811F8DAC7E0004DEAC /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 		2B3FA66E81A5D8067479975A /* Pods_MusicStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		970555C4C77EAB251058E151 /* Pods-MusicStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicStreamer/Pods-MusicStreamer.release.xcconfig"; sourceTree = "<group>"; };
 		C981C3301F8EB230003CE0D4 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		C981C3331F8EB825003CE0D4 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		C981C3361F8EB87F003CE0D4 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		C981C3391F8EBAD5003CE0D4 /* UITableViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExt.swift; sourceTree = "<group>"; };
+		C981C33B1F8EF58C003CE0D4 /* PlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
 		C9F1857A1F8DAC7E0004DEAC /* MusicStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F1857D1F8DAC7E0004DEAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9F1857F1F8DAC7E0004DEAC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -72,6 +80,30 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C981C3321F8EB7FB003CE0D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C981C3331F8EB825003CE0D4 /* TrackCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C981C3351F8EB855003CE0D4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C981C3361F8EB87F003CE0D4 /* ReusableView.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		C981C3381F8EBAB5003CE0D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C981C3391F8EBAD5003CE0D4 /* UITableViewExt.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		C9F185711F8DAC7E0004DEAC = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +125,9 @@
 		C9F1857C1F8DAC7E0004DEAC /* MusicStreamer */ = {
 			isa = PBXGroup;
 			children = (
+				C981C3381F8EBAB5003CE0D4 /* Extensions */,
+				C981C3351F8EB855003CE0D4 /* Protocols */,
+				C981C3321F8EB7FB003CE0D4 /* View */,
 				C981C32F1F8EB224003CE0D4 /* Model */,
 				C9F185A61F8E94800004DEAC /* Utils */,
 				C9F185A31F8E89E20004DEAC /* Controller */,
@@ -122,6 +157,7 @@
 			children = (
 				C9F1857F1F8DAC7E0004DEAC /* MainVC.swift */,
 				C9F185A41F8E8A1F0004DEAC /* MusicTC.swift */,
+				C981C33B1F8EF58C003CE0D4 /* PlayerVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -273,11 +309,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981C33C1F8EF58C003CE0D4 /* PlayerVC.swift in Sources */,
 				C9F185801F8DAC7E0004DEAC /* MainVC.swift in Sources */,
 				C981C3311F8EB230003CE0D4 /* Track.swift in Sources */,
+				C981C33A1F8EBAD5003CE0D4 /* UITableViewExt.swift in Sources */,
 				C9F185A21F8E7FA50004DEAC /* Constants.swift in Sources */,
 				C9F1857E1F8DAC7E0004DEAC /* AppDelegate.swift in Sources */,
 				C9F185A51F8E8A1F0004DEAC /* MusicTC.swift in Sources */,
+				C981C3371F8EB87F003CE0D4 /* ReusableView.swift in Sources */,
+				C981C3341F8EB825003CE0D4 /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

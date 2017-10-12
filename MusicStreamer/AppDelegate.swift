@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        auth.redirectURL     = URL(string: REDIRECT_URL)
+        auth.redirectURL = URL(string: REDIRECT_URL)
         auth.sessionUserDefaultsKey = "current session"
         
         return true

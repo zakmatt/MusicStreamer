@@ -11,6 +11,7 @@ import Foundation
 class Track {
     fileprivate var _name: String!
     fileprivate var _duration: Int!
+    fileprivate var _image: UIImage!
     
     var name: String {
         if _name == nil {
@@ -26,13 +27,28 @@ class Track {
         return _duration
     }
     
-    init(JSONTrackData: JSONStandard) {
-        if let name = JSONTrackData["name"] as? String {
+    var image: UIImage {
+        if _image == nil {
+            return UIImage()
+        }
+        return _image
+    }
+    
+    init(dictTrackData: DictStandard) {
+        if let name = dictTrackData["name"] as? String {
             _name = name
         }
         
-        if let duration = JSONTrackData["duration_ms"] as? Int {
+        if let duration = dictTrackData["duration_ms"] as? Int {
             _duration = duration / 1000
+        }
+        
+        if let album = dictTrackData["album"] as? DictStandard {
+            if let imagesURLs = album["images"] as? [DictStandard] {
+                let imageURL = URL(string: imagesURLs[0]["url"] as! String)
+                let imageData = NSData(contentsOf: imageURL!)
+                _image = UIImage(data: imageData as! Data)
+            }
         }
     }
 }
