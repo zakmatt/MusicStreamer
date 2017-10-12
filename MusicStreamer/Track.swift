@@ -10,8 +10,9 @@ import Foundation
 
 class Track {
     fileprivate var _name: String!
-    fileprivate var _duration: Int!
+    fileprivate var _duration = 30
     fileprivate var _image: UIImage!
+    fileprivate var _previewURL: URL!
     
     var name: String {
         if _name == nil {
@@ -21,9 +22,6 @@ class Track {
     }
     
     var duration: Int {
-        if _duration == nil {
-            return -1
-        }
         return _duration
     }
     
@@ -34,20 +32,27 @@ class Track {
         return _image
     }
     
+    var previewURL: URL {
+        if _previewURL == nil {
+            return URL(string: "")!
+        }
+        return _previewURL
+    }
+    
     init(dictTrackData: DictStandard) {
         if let name = dictTrackData["name"] as? String {
             _name = name
         }
         
-        if let duration = dictTrackData["duration_ms"] as? Int {
-            _duration = duration / 1000
+        if let previewURL = dictTrackData["preview_url"] as? String {
+            _previewURL = URL(string: previewURL)
         }
         
         if let album = dictTrackData["album"] as? DictStandard {
             if let imagesURLs = album["images"] as? [DictStandard] {
                 let imageURL = URL(string: imagesURLs[0]["url"] as! String)
                 let imageData = NSData(contentsOf: imageURL!)
-                _image = UIImage(data: imageData as! Data)
+                _image = UIImage(data: imageData! as Data)
             }
         }
     }

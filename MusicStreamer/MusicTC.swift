@@ -9,13 +9,17 @@
 import UIKit
 import Alamofire
 
-class MusicTC: UITableViewController {
+class MusicTC: UITableViewController, UISearchBarDelegate {
+    
     var tracks = [Track]()
+    
+    @IBOutlet weak var trackSearchBar: UISearchBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        callAlamo(url: SEARCH_URL)
+        trackSearchBar.delegate = self
+        trackSearchBar.returnKeyType = UIReturnKeyType.done
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,8 +39,8 @@ class MusicTC: UITableViewController {
 }
 
 extension MusicTC {
-    func callAlamo(url: String) {
-        Alamofire.request(url, method: .get, parameters: ["q":"Linkin Park", "type":"track"], encoding: URLEncoding.default, headers: ["Authorization": TOKEN]).responseJSON { response in
+    func callAlamo(url: String, query: String) {
+        Alamofire.request(url, method: .get, parameters: ["q":query, "type":"track"], encoding: URLEncoding.default, headers: ["Authorization": TOKEN]).responseJSON { response in
             if let resultData = response.result.value as? DictStandard {
                 self.parseReceivedData(DictData: resultData)
             }
@@ -58,9 +62,15 @@ extension MusicTC {
         if let rowIndex = tableView.indexPathForSelectedRow?.row {
             if let trackDetails = segue.destination as? PlayerVC {
                 let track = tracks[rowIndex]
-                print(track.name)
                 trackDetails.track = track
             }
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchedText = trackSearchBar.text
+        tracks.removeAll()
+        self.tableView.reloadData()
+        callAlamo(url: SEARCH_URL, query: searchedText!)
     }
 }
